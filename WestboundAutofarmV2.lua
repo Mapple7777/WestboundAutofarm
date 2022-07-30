@@ -46,14 +46,6 @@ local function AntiAFK()
     end
 end
 
-local function AntiLasso()
-    while task.wait() do 
-        if Lassod.Value ~= nil and Lassod:FindFirstChild('BreakFreeTimer') or Hogtied.Value == true then
-            LassoEvent:FireServer('BreakFree')
-        end
-    end
-end
-
 local function HideName()
     Character:FindFirstChild('Head'):FindFirstChild('NameTag'):Destroy()
 end
@@ -96,7 +88,6 @@ end
 Godmode()
 HideName()
 AntiAFK()
-coroutine.wrap(AntiLasso)()
 RunService.RenderStepped:Connect(function()
     coroutine.wrap(BankFarm)()
     coroutine.wrap(CashRegisterFarm)()
